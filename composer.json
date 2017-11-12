@@ -1,0 +1,17 @@
+{
+  "name": "pujacms/ajaxupload",
+  "description": "Ajaxupload is libarry  to handle upload file via AJAX",
+  "type": "library",
+  "license": "Apache License 2.0",
+  "keywords": ["Ajaxupload", "jquery ajaxupload"],
+  "authors": [
+    {
+      "name": "Jin Nguyen",
+      "email": "w2ajax@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "components/jquery": ">=2.1"
+  }
+}

@@ -1,0 +1,40 @@
+<html>
+<header>
+    <link rel="stylesheet" href="../src/ajaxupload.css" />
+    <style>
+
+        .pujacms-ajaxupload {
+            width: 300px;
+            border: 1px solid #000;
+        }
+    </style>
+</header>
+<body>
+    <div class="pujacms-ajaxupload">
+        Browse 1
+        <input type="file" multiple />
+    </div>
+    <br />
+
+    <div class="pujacms-ajaxupload">
+        Browse 2
+        <input type="file" />
+
+    </div>
+</body>
+<script src="../vendor/components/jquery/jquery.min.js"></script>
+<script src="../src/ajaxupload.js"></script>
+<script>
+    $('.pujacms-ajaxupload').AjaxUpload({
+        Upload_Url: './server/upload.php',
+        Api: {
+            processSucceed: function (el, response) {
+                el.append('<input name="abc" value="' + response.status + '" />');
+            },
+            finish: function (el, totalSucceed, totalFailed) {
+                console.log('Upload Finish: ' + totalSucceed + '/' + (totalSucceed + totalFailed));
+            }
+        }
+
+    });
+</script>

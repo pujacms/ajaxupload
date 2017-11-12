@@ -1,0 +1,6 @@
+.puja-ajaxupload-progress{width: 100%;position: relative;margin-top: 10px;}
+.puja-ajaxupload-progressbar{width: 50%;position: absolute; height: 2px; background: green;}
+.puja-ajaxupload-progressbar.succeed{width: 100%;}
+.puja-ajaxupload-progressbar.failed{width: 100%; background: red;}
+.puja-ajaxupload-delete-btn:before{content: 'x';}
+.puja-ajaxupload-delete-btn {display: inline-block; width: 16px; height: 16px; position: absolute; right: 0;}
