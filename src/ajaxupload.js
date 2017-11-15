@@ -25,10 +25,13 @@
             var $fileList = inputFileEl.prop('files');
             this.totalFileUpload = $fileList.length;
 
-            this.ajaxFileUpload = function(file, idx) {
+            this.ajaxFileUpload = function(file, idx, params) {
                 var $this = this;
                 var formData = new FormData();
                 formData.append('file', file);
+                if (params) {
+                    formData.append('params', params);
+                }
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', $cfg.Upload_Url);
                 xhr.responseType = 'json';
@@ -90,7 +93,6 @@
                 xhr.send(formData);
             }
 
-
             for (var i = 0; i < $fileList.length; i++) {
                 this.uploadProgressEl.append(
                     '<div class="puja-ajaxupload-progress">{name}[{filesize} byte(s)] <div class="puja-ajaxupload-progressbar progressbar-{idx}"></div><span class="puja-ajaxupload-delete-btn"></span></div>'
@@ -98,7 +100,7 @@
                         .replace('{filesize}', $fileList[i].size)
                         .replace('{idx}', i)
                 );
-                this.ajaxFileUpload($fileList[i], i);
+                this.ajaxFileUpload($fileList[i], i, inputFileEl.data('params'));
             }
         };
 
